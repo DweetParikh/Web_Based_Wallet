@@ -1,10 +1,18 @@
 let mnemonic = '';
 let wallets = [];
 
+document.getElementById('create-wallet').style.display = 'none';
+
 document.getElementById('generate-mnemonic').addEventListener('click', () => {
+
+  document.getElementById('mnemonic').style.display = 'block';
+
     mnemonic = ethers.Wallet.createRandom().mnemonic.phrase;
     document.getElementById('mnemonic').innerText = `Mnemonic: ${mnemonic}`;
+
+    document.getElementById('create-wallet').style.display = 'block';
 });
+ 
 
 document.getElementById('create-wallet').addEventListener('click', () => {
     if (!mnemonic) {
